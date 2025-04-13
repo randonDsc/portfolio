@@ -95,6 +95,34 @@ h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
+
+
+.resume {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2rem;
+}
+
+.center-sections {
+  display: flex; /* Aligns the two sections side by side */
+  justify-content: center; /* Centers the sections horizontally */
+  gap: 2rem; /* Adds space between the two sections */
+  margin: 2rem 0; /* Optional: Adds margin around the two sections */
+}
+
+section.basic-info, section.education {
+  padding: 1.5rem;
+  border-radius: 5px;
+  width: 40%; /* Adjust width to make sure they fit side by side */
+  text-align: left;
+  background-color: #f4f4f4; /* Optional: Background for visibility */
+}
+
+section.basic-info h2, section.education h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
 /* this is step 3.2 
 form label,
 form input,
