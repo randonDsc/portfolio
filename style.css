@@ -119,6 +119,14 @@ section.basic-info, section.education {
   width: 40%; /* Adjust width to make sure they fit side by side */
   text-align: left;
   background-color: #f4f4f4; /* Optional: Background for visibility */
+  color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  section.basic-info, section.education {
+    background-color: #333; /* Dark mode background */
+    color: #f4f4f4; /* Light text in dark mode */
+  }
 }
 
 section.basic-info h2, section.education h2 {
