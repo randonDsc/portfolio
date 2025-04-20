@@ -49,12 +49,40 @@ for (let p of pages) {
     if (a.host !== location.host) {
         a.target = '_blank';
     }
-    
+
     nav.append(a);
   }
 
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+	<label class="color-scheme">
+		Theme:
+		<select>
+			<option value="light dark" selected>Automatic</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+		</select>
+	</label>`,
+);
 
+let select = document.querySelector('.color-scheme select');
 
+function setColorScheme(colorScheme) {
+    document.documentElement.style.setProperty('color-scheme', colorScheme);
+    select.value = colorScheme;
+}
+  
 
+select.addEventListener('input', function (event) {
+    const colorScheme = event.target.value;
+    console.log('color scheme changed to', event.target.value);
+    document.documentElement.style.setProperty('color-scheme', event.target.value);
+    localStorage.colorScheme = colorScheme;
+    setColorScheme(colorScheme);
+});
 
+if ("colorScheme" in localStorage) {
+  setColorScheme(localStorage.colorScheme);
+}
 
