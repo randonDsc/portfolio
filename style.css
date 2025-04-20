@@ -24,13 +24,13 @@ nav a {
   padding: 0.5em;
 }
 
-nav a.current {
+/* nav a.current {
   border-bottom-width: 0.4em;
   border-bottom-style: solid;
   border-bottom-color: oklch(80% 3% 200);
   padding-bottom: 0.4em;
   font-weight: bold;
-}
+} */
 
 html {
   --color-accent: oklch(50% 0.3 240);
