@@ -2,7 +2,7 @@
     {
         "title": "Is Product In Wholefood Really Healthier Than Affordable Grocery Stores?",
         "year": "2025",
-        "image": "../images/DSC106_project1.jpg",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "The motivation of creating this plot is in the process of data exploration, I found out that the median price of products in Whole food 1.67 times more expensive than products in Walmart and 1.28 times more expensive than products in Target. This makes me question what makes the product of WholeFoods more expensive."
     },
     {
