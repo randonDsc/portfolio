@@ -86,3 +86,54 @@ if ("colorScheme" in localStorage) {
   setColorScheme(localStorage.colorScheme);
 }
 
+//lab 4
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    //parse json
+    const data = await response.json();
+    return data;
+    console.log(response);
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+//lab4 1.4
+
+export function renderProjects(project, containerElement, headingLevel = 'h2') {
+    // Validate the containerElement
+    if (!(containerElement instanceof HTMLElement)) {
+      console.error('Invalid containerElement provided.');
+      return; // Exit early if the containerElement is invalid
+    }
+  // Your code will go here
+  containerElement.innerHTML = '';
+  project.forEach((project) => {
+    // Create a new article element for each project
+    const article = document.createElement('article');
+
+    //handle missing, make sure to comment out if no placing one
+    // const title = project.title || 'Untitled Project';  
+    // const image = project.image || 'default-image.jpg';  
+    // const description = project.description || 'No description available.';
+
+    const heading = document.createElement(headingLevel); 
+    heading.textContent = project.title; 
+
+    //Use the innerHTML property to populate the <article> element with dynamic content.
+    article.innerHTML = `
+    ${heading.outerHTML} <!-- Add the dynamically created heading here -->
+    <img src="${project.image}" alt="${'no image for now'}">
+    <p>${project.description}</p>
+  `;
+
+    //append the <article> element to the provided containerElement
+    containerElement.appendChild(article);
+  });
+}
+
