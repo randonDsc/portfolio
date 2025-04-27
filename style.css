@@ -160,3 +160,37 @@ form label {
   margin-block: 0.5em;
 } */
 
+#profile-stats {
+  margin: 0.5rem auto;
+  max-width: 800px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#profile-stats h2 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+  grid-template-rows: auto auto; /* 2 rows for each label-value pair */
+  gap: 1rem; /* spacing between each row/column */
+  margin-top: 2rem;
+}
+
+#profile-stats dt {
+  grid-row: 1; /* Place all dt elements in the first row */
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center; /* Center text horizontally */
+  color: gray;
+}
+
+#profile-stats dd {
+  grid-row: 2; /* Place all dd elements in the second row */
+  font-size: 1.5rem;
+  text-align: center; /* Center text horizontally */
+  margin: 0;
+}

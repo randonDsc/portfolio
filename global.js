@@ -128,7 +128,7 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     //Use the innerHTML property to populate the <article> element with dynamic content.
     article.innerHTML = `
     ${heading.outerHTML} <!-- Add the dynamically created heading here -->
-    <img src="${project.image}" alt="${'no image for now'}">
+    <img src="${project.image}" alt="${'no image for now'}" width="275">
     <p>${project.description}</p>
   `;
 
@@ -137,3 +137,8 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
   });
 }
 
+
+// lab4 step 3
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
