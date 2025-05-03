@@ -203,3 +203,41 @@ form label {
 
   overflow: visible;
 }
+
+.container {
+  display: flex;
+  justify-content: space-between; /* Align pie chart and legend side by side */
+  align-items: center; /* Vertically align the items */
+  gap: 2em; /* Space between the pie chart and the legend */
+}
+
+
+.legend {
+  flex: 1; /* Let the legend take up the remaining available space */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr)); /* Adjust items in the grid */
+  gap: 1em; /* Space between legend items */
+  list-style: none;
+  padding: 1em;
+  margin: 0; /* Reset margin */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+  font-family: sans-serif;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1em;
+}
+
+.legend .swatch {
+  width: 1em;
+  height: 1em;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  display: inline-block;
+  border-radius: 4px; /* Change to 50% for circle swatches */
+}
