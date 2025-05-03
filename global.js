@@ -129,7 +129,10 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     article.innerHTML = `
     ${heading.outerHTML} <!-- Add the dynamically created heading here -->
     <img src="${project.image}" alt="${'no image for now'}" width="275">
+    <div>
     <p>${project.description}</p>
+    <p>Created in: ${project.year}</p>
+    </div>
   `;
 
     //append the <article> element to the provided containerElement

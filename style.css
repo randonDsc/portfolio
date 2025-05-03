@@ -194,3 +194,12 @@ form label {
   text-align: center; /* Center text horizontally */
   margin: 0;
 }
+
+/* lab 5 */
+
+#projects-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
