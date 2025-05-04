@@ -241,3 +241,27 @@ form label {
   display: inline-block;
   border-radius: 4px; /* Change to 50% for circle swatches */
 }
+
+.searchBar{
+  margin:1em;
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
