@@ -84,6 +84,7 @@ function renderScatterPlot(data, commits) {
   // Put all the JS code of Steps inside this function
     const width = 1000;
     const height = 600;
+    const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
     const svg = d3
         .select('#chart')
         .append('svg')
@@ -116,7 +117,9 @@ function renderScatterPlot(data, commits) {
     // Create the axes
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3.axisLeft(yScale).tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
-    
+    //calculate range of edited line:
+    const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+    const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([6, 30]); // adjust these values based on your experimentation
 
     // Add X axis
     svg
@@ -132,11 +135,11 @@ function renderScatterPlot(data, commits) {
 
     dots
         .selectAll('circle')
-        .data(commits)
+        .data(sortedCommits)
         .join('circle')
         .attr('cx', (d) => xScale(d.datetime))
         .attr('cy', (d) => yScale(d.hourFrac))
-        .attr('r', 5)
+        .attr('r', 15)
         .attr('fill', 'steelblue')
         .on('mouseenter', (event, commit) => {
             renderTooltipContent(commit);
@@ -144,6 +147,18 @@ function renderScatterPlot(data, commits) {
             updateTooltipPosition(event);
         })
         .on('mouseleave', () => {
+            updateTooltipVisibility(false);
+        })
+        .attr('r', (d) => rScale(d.totalLines))
+        .style('fill-opacity', 0.7) // Add transparency for overlapping dots
+        .on('mouseenter', (event, commit) => {
+            d3.select(event.currentTarget).style('fill-opacity', 1); // Full opacity on hover
+            renderTooltipContent(commit);
+            updateTooltipVisibility(true);
+            updateTooltipPosition(event);
+        })
+        .on('mouseleave', (event) => {
+            d3.select(event.currentTarget).style('fill-opacity', 0.7);
             updateTooltipVisibility(false);
         });
 
@@ -163,6 +178,7 @@ function renderTooltipContent(commit) {
     const date = document.getElementById('commit-date');
     const time = document.getElementById('commit-time');
     const author = document.getElementById('commit-author');
+    const lines = document.getElementById('commit-lines');
 
     if (Object.keys(commit).length === 0) return;
 
@@ -175,6 +191,9 @@ function renderTooltipContent(commit) {
         dateStyle: 'full',
     });
     author.textContent = commit.author?.toLocaleString('en', {
+        dateStyle: 'full',
+    });
+    lines.textContent = commit.totalLines?.toLocaleString('en', {
         dateStyle: 'full',
     });
 }
