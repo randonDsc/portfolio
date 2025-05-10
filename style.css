@@ -315,6 +315,7 @@ dl.info dt {
   padding: 1em;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  pointer-events: none;
 }
 
 circle {
@@ -325,4 +326,32 @@ circle {
 
 circle:hover {
   transform: scale(1.5);
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
+#selection-count {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+
+#language-breakdown {
+  font-size: 1.2em;
 }
