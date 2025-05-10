@@ -16,36 +16,72 @@ async function loadData() {
 
 
 function processCommits(data) {
-    return d3
-        .groups(data, (d) => d.commit)
-        .map(([commit, lines]) => {
-        // Each 'lines' array contains all lines modified in this commit
-        // All lines in a commit have the same author, date, etc.
-        // So we can get this information from the first line
-        let first = lines[0];
+  return d3
+    .groups(data, (d) => d.commit)
+    .map(([commit, lines]) => {
+      let first = lines[0];
+      let { author, date, time, timezone, datetime } = first;
+      let ret = {
+        id: commit,
+        url: 'https://github.com/vis-society/lab-7/commit/' + commit,
+        author,
+        date,
+        time,
+        timezone,
+        datetime,
+        hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
+        totalLines: lines.length,
+      };
 
-        // We can use object destructuring to get these properties
-        let { author, date, time, timezone, datetime } = first;
-  
-        // What information should we return about this commit?
-        return {
-            id: commit,
-            author,
-            date,
-            time,
-            timezone,
-            datetime,
-            // What other properties might be useful?
-            // Calculate hour as a decimal for time analysis
-            // e.g., 2:30 PM = 14.5
-            hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
-            // How many lines were modified?
-            totalLines: lines.length,
+      Object.defineProperty(ret, 'lines', {
+        value: lines,
+        // What other options do we need to set?
+        // Hint: look up configurable, writable, and enumerable
+        enumerable: false,
+        configurable: true,
+        writable: true,
+      });
 
-
-        };
+      return ret;
     });
 }
-  
+
+function renderCommitInfo(data, commits) {
+    // Create the dl element
+    const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+
+    // Add total LOC
+    dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
+    dl.append('dd').text(data.length);
+
+    // Add total commits
+    dl.append('dt').text('Total commits');
+    dl.append('dd').text(commits.length);
+
+    //num files
+    const num_files = d3.group(data, d => d.file).size;
+    dl.append('dt').text('Number of files');
+    dl.append('dd').text(num_files);
+
+    // Average file length
+    const avg_f_len = data.length / num_files;
+    dl.append('dt').text('Average file length');
+    dl.append('dd').text(Math.round(avg_f_len));
+
+    //Longest file
+    const file_lengths = d3.rollups(
+    data,
+    v => d3.max(v, d => d.line), 
+    d => d.file
+    );
+    const longest = d3.greatest(file_lengths, d => d[1])?.[0];
+    dl.append('dt').text('Longest File');
+    dl.append('dd').text(longest);
+}
+
 let data = await loadData();
 let commits = processCommits(data);
+
+renderCommitInfo(data, commits);
+console.log(commits);
+console.log(data);

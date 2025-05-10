@@ -265,3 +265,26 @@ path {
   }
 }
 
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center; /* center items on each row */
+  margin-top: 1rem;
+}
+
+.stats dt, .stats dd {
+  margin: 0;
+}
+
+.stats dt {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: gray;
+}
+
+.stats-entry {
+  display: flex;
+  align-items: baseline;
+}
