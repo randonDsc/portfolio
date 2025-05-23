@@ -215,8 +215,7 @@ form label {
   padding: 1em;
   margin: 0; /* Reset margin */
   border: 1px solid #6e6b6b;
-  background-color: #3d3d3d;
-  color: #f4f4f4;
+  background-color: #f4f4f4;
   border-radius: 8px;
   font-family: sans-serif;
 }
