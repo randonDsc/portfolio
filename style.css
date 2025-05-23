@@ -119,15 +119,9 @@ section.basic-info, section.education {
   width: 40%; /* Adjust width to make sure they fit side by side */
   text-align: left;
   background-color: #f4f4f4; /* Optional: Background for visibility */
-  color: #333;
+  color: #4b4949;
 }
 
-@media (prefers-color-scheme: dark) {
-  section.basic-info, section.education {
-    background-color: #333; /* Dark mode background */
-    color: #f4f4f4; /* Light text in dark mode */
-  }
-}
 
 section.basic-info h2, section.education h2 {
   margin: 0;
@@ -220,10 +214,22 @@ form label {
   list-style: none;
   padding: 1em;
   margin: 0; /* Reset margin */
-  border: 1px solid #ddd;
+  border: 1px solid #6e6b6b;
+  background-color: #3d3d3d;
+  color: #f4f4f4;
   border-radius: 8px;
-  background-color: #fafafa;
   font-family: sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  section.basic-info, section.education {
+    background-color: #2b2929; /* Dark mode background */
+    color: #f4f4f4; /* Light text in dark mode */
+  }
+  .legend {
+    background-color: #3d3d3d; /* Dark mode background */
+    color: #681b1b; /* Light text in dark mode */
+  }
 }
 
 .legend li {
