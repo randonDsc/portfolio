@@ -132,6 +132,7 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     <img src="${project.image}" alt="${'no image for now'}" width="275">
     <div>
     <p>${project.description}</p>
+    <p>link: <a href="${project.link}" target="_blank">${project.link}</a></p> 
     <p>Created in: ${project.year}</p>
     </div>
   `;
