@@ -9,23 +9,23 @@
     {
         "title": "Bike Traffic Around Boston and Cambridge",
         "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "https://raw.githubusercontent.com/randonDsc/portfolio/main/images/bike_map.jpg",
         "description": "This is an interactive map that allows the users to explore the bike traffic in the Boston and Cambridge area. ",
         "link": "https://randondsc.github.io/bike_map/"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2023",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "title": "Project2",
+        "year": "2025",
+        "image": "https://raw.githubusercontent.com/randonDsc/portfolio/main/images/project2_img.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus totam eligendi at iusto ipsam, voluptatibus quos accusantium molestias optio quasi cumque, dolorem dignissimos vel consequatur cum placeat magnam explicabo tempora!",
-        "link": "https://github.com/randonDsc"
+        "link": "https://randondsc.github.io/dsc106_project2/"
     },
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "Project3",
         "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "https://raw.githubusercontent.com/randonDsc/portfolio/main/images/project2_img.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus totam eligendi at iusto ipsam, voluptatibus quos accusantium molestias optio quasi cumque, dolorem dignissimos vel consequatur cum placeat magnam explicabo tempora!",
-        "link": "https://github.com/randonDsc"
+        "link": "https://gaeahou.github.io/Course-project/"
     },
     {
         "title": "Lorem ipsum dolor sit.",
