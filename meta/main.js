@@ -334,9 +334,11 @@ function onTimeSliderChange() {
 
     filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
     updateScatterPlot(data, filteredCommits);
+    updateFileDisplay(filteredCommits)
 
 
 }
+
 
 // Attach the event listener
 document
@@ -344,6 +346,10 @@ document
     .addEventListener("input", onTimeSliderChange);
 
 // Initialize once on page load
+// first three set sliders to max
+document.getElementById("commit-progress").value = 100;
+commitProgress = 100;
+commitMaxTime = timeScale.invert(commitProgress);
 onTimeSliderChange();
 
 
@@ -397,6 +403,47 @@ function updateScatterPlot(data, commits) {
             updateTooltipVisibility(false);
         });
 
+}
 
+function updateFileDisplay(filteredCommits) {
+    let lines = filteredCommits.flatMap((d) => d.lines);
+    let files = d3
+        .groups(lines, (d) => d.file)
+        .map(([name, lines]) => {
+            return { name, lines };
+        })
+        .sort((a, b) => b.lines.length - a.lines.length);
 
+    let filesContainer = d3
+        .select('#files')
+        .selectAll('div')
+        .data(files, (d) => d.name)
+        .join(
+            // This code only runs when the div is initially rendered
+            (enter) =>
+                enter.append('div').call((div) => {
+                    div.append('dt')
+                        .html(d => `<code>${d.name}:</code><small>${d.lines.length} lines</small>`);
+                    div.append('dd');
+                }),
+            update =>
+                update.call(div => {
+                    div.select('dt')
+                        .html(d => `<code>${d.name}</code><small>${d.lines.length} lines</small>`);
+                })
+        );
+
+    let colors = d3.scaleOrdinal(d3.schemeTableau10);
+    // This code updates the div info
+    // filesContainer.select('dt > code').text((d) => d.name);
+    // filesContainer.select('dd').text((d) => `${d.lines.length} lines`); update only number of lines
+    filesContainer
+        .select('dd')
+        .selectAll('div')
+        .data((d) => d.lines)
+        .join('div')
+        .attr('class', 'loc')
+        .attr('style', (d) => `--color: ${colors(d.type)}`);
+
+    
 }

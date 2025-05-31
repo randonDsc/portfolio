@@ -11,13 +11,25 @@
 <body>
     <h1>Meta</h1>
 
-    <div id = "commit-div">
+    <div id="commit-div">
         <label id="commit-label">
             Show commits until:
-            <input type="range" id="commit-progress" min = 0 max = 100>
+            <input type="range" id="commit-progress" min=0 max=100>
             <time id="commit-time"></time>
         </label>
     </div>
+
+    <dl id="files">
+        <!-- we want the following structure for each file:
+  <div>
+    <dt>
+      <code>{file.name}</code>
+    </dt>
+    <dd>{file.lines.length} lines</dd>
+  </div>
+  -->
+  
+    </dl>
 
     <h2>Summary</h2>
     <div id="stats"></div>
@@ -45,6 +57,7 @@
 
         <!-- Add: Time, author, lines edited -->
     </dl>
+
 
     <p id="selection-count">No commits selected</p>
     <dl id="language-breakdown" class="stats"></dl>

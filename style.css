@@ -361,14 +361,16 @@ circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
-  
+
 }
 
 @starting-style {
   circle {
     r: 0;
   }
-} /*not working, step 1.4*/
+}
+
+/*not working, step 1.4*/
 
 
 
@@ -422,4 +424,41 @@ circle.selected {
 
 #commit-progress {
   width: 700px;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+}
+
+dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+dt {
+  display: block;
+
+}
+
+dt code {
+  font-size: 1.25em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+dt small {
+  display: block;
+  font-size: 1em;
+  margin-top: 0.25em;
+  color: gray;
 }
