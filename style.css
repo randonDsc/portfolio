@@ -434,7 +434,7 @@ circle.selected {
   border-radius: 50%;
 }
 
-dd {
+#files dd {
   grid-column: 2;
   display: flex;
   flex-wrap: wrap;
@@ -445,18 +445,18 @@ dd {
   margin-left: 0;
 }
 
-dt {
+#files dt {
   display: block;
 
 }
 
-dt code {
+#files dt code {
   font-size: 1.25em;
   font-weight: bold;
   font-style: italic;
 }
 
-dt small {
+#files dt small {
   display: block;
   font-size: 1em;
   margin-top: 0.25em;
