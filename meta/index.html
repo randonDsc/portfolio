@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,14 @@
 <body>
     <h1>Meta</h1>
 
+    <div id = "commit-div">
+        <label id="commit-label">
+            Show commits until:
+            <input type="range" id="commit-progress" min = 0 max = 100>
+            <time id="commit-time"></time>
+        </label>
+    </div>
+
     <h2>Summary</h2>
     <div id="stats"></div>
 
@@ -18,21 +27,21 @@
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
         <dt>Commit</dt>
-            <dd>
-                <a href="" id="commit-link" target="_blank"></a>
-            </dd>
+        <dd>
+            <a href="" id="commit-link" target="_blank"></a>
+        </dd>
 
         <dt>Date</dt>
-            <dd id="commit-date"></dd>
+        <dd id="commit-date"></dd>
 
         <dt>Time</dt>
-            <dd id="commit-time"></dd>
-        
+        <dd id="commit-time"></dd>
+
         <dt>Author</dt>
-            <dd id="commit-author"></dd>
+        <dd id="commit-author"></dd>
 
         <dt>Lines Edited</dt>
-            <dd id="commit-lines"></dd>
+        <dd id="commit-lines"></dd>
 
         <!-- Add: Time, author, lines edited -->
     </dl>
@@ -44,4 +53,5 @@
     <script type="module" src="../global.js"></script>
     <script type="module" src="main.js"></script>
 </body>
+
 </html>

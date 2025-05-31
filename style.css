@@ -1,12 +1,12 @@
 body {
-    /* Set line height to 1.5 times the font size
+  /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
        */
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    margin-inline: auto;
-    padding: 2ch;
-  }
+  font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: auto;
+  padding: 2ch;
+}
 
 nav {
   display: flex;
@@ -17,7 +17,7 @@ nav {
 }
 
 nav a {
-  flex:1;
+  flex: 1;
   text-decoration: none;
   color: inherit;
   text-align: center;
@@ -58,8 +58,7 @@ form {
 
 input,
 textarea,
-button
-select {
+button select {
   font: inherit;
 }
 
@@ -79,13 +78,13 @@ form button {
   gap: 1em
 }
 
-.projects > article {
+.projects>article {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
 }
 
-.projects > article h2 {
+.projects>article h2 {
   margin: 0;
 }
 
@@ -107,23 +106,31 @@ h6 {
 }
 
 .center-sections {
-  display: flex; /* Aligns the two sections side by side */
-  justify-content: center; /* Centers the sections horizontally */
-  gap: 2rem; /* Adds space between the two sections */
-  margin: 2rem 0; /* Optional: Adds margin around the two sections */
+  display: flex;
+  /* Aligns the two sections side by side */
+  justify-content: center;
+  /* Centers the sections horizontally */
+  gap: 2rem;
+  /* Adds space between the two sections */
+  margin: 2rem 0;
+  /* Optional: Adds margin around the two sections */
 }
 
-section.basic-info, section.education {
+section.basic-info,
+section.education {
   padding: 1.5rem;
   border-radius: 5px;
-  width: 40%; /* Adjust width to make sure they fit side by side */
+  width: 40%;
+  /* Adjust width to make sure they fit side by side */
   text-align: left;
-  background-color: #f4f4f4; /* Optional: Background for visibility */
+  background-color: #f4f4f4;
+  /* Optional: Background for visibility */
   color: #4b4949;
 }
 
 
-section.basic-info h2, section.education h2 {
+section.basic-info h2,
+section.education h2 {
   margin: 0;
   font-size: 1.5rem;
 }
@@ -168,24 +175,31 @@ form label {
 
 #profile-stats dl {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
-  grid-template-rows: auto auto; /* 2 rows for each label-value pair */
-  gap: 1rem; /* spacing between each row/column */
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 equal-width columns */
+  grid-template-rows: auto auto;
+  /* 2 rows for each label-value pair */
+  gap: 1rem;
+  /* spacing between each row/column */
   margin-top: 2rem;
 }
 
 #profile-stats dt {
-  grid-row: 1; /* Place all dt elements in the first row */
+  grid-row: 1;
+  /* Place all dt elements in the first row */
   font-weight: bold;
   font-size: 1.2rem;
-  text-align: center; /* Center text horizontally */
+  text-align: center;
+  /* Center text horizontally */
   color: gray;
 }
 
 #profile-stats dd {
-  grid-row: 2; /* Place all dd elements in the second row */
+  grid-row: 2;
+  /* Place all dd elements in the second row */
   font-size: 1.5rem;
-  text-align: center; /* Center text horizontally */
+  text-align: center;
+  /* Center text horizontally */
   margin: 0;
 }
 
@@ -200,20 +214,27 @@ form label {
 
 .container {
   display: flex;
-  justify-content: space-between; /* Align pie chart and legend side by side */
-  align-items: center; /* Vertically align the items */
-  gap: 2em; /* Space between the pie chart and the legend */
+  justify-content: space-between;
+  /* Align pie chart and legend side by side */
+  align-items: center;
+  /* Vertically align the items */
+  gap: 2em;
+  /* Space between the pie chart and the legend */
 }
 
 
 .legend {
-  flex: 1; /* Let the legend take up the remaining available space */
+  flex: 1;
+  /* Let the legend take up the remaining available space */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr)); /* Adjust items in the grid */
-  gap: 1em; /* Space between legend items */
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  /* Adjust items in the grid */
+  gap: 1em;
+  /* Space between legend items */
   list-style: none;
   padding: 1em;
-  margin: 0; /* Reset margin */
+  margin: 0;
+  /* Reset margin */
   background-color: rgba(214, 214, 214, 0.815);
   border-radius: 8px;
   font-family: sans-serif;
@@ -232,25 +253,34 @@ form label {
   aspect-ratio: 1 / 1;
   background-color: var(--color);
   display: inline-block;
-  border-radius: 4px; /* Change to 50% for circle swatches */
+  border-radius: 4px;
+  /* Change to 50% for circle swatches */
 }
 
 @media (color-scheme: dark) {
-  section.basic-info, section.education {
-    background-color: #2b2929; /* Dark mode background */
-    color: #f4f4f4; /* Light text in dark mode */
+
+  section.basic-info,
+  section.education {
+    background-color: #2b2929;
+    /* Dark mode background */
+    color: #f4f4f4;
+    /* Light text in dark mode */
   }
+
   .legend {
-    background-color: rgba(167, 40, 40, 0.815); /* Dark mode background */
-    color: #f4f4f4; /* Light text in dark mode */
-    border: 3px solid red; /* debug */
+    background-color: rgba(167, 40, 40, 0.815);
+    /* Dark mode background */
+    color: #f4f4f4;
+    /* Light text in dark mode */
+    border: 3px solid red;
+    /* debug */
   }
 }
 
 
 
-.searchBar{
-  margin:1em;
+.searchBar {
+  margin: 1em;
 }
 
 &:has(path:hover) {
@@ -277,11 +307,13 @@ path {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: center; /* center items on each row */
+  justify-content: center;
+  /* center items on each row */
   margin-top: 1rem;
 }
 
-.stats dt, .stats dd {
+.stats dt,
+.stats dd {
   margin: 0;
 }
 
@@ -329,7 +361,17 @@ circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
+  
 }
+
+@starting-style {
+  circle {
+    r: 0;
+  }
+} /*not working, step 1.4*/
+
+
+
 
 circle:hover {
   transform: scale(1.5);
@@ -337,7 +379,8 @@ circle:hover {
 
 @keyframes marching-ants {
   to {
-    stroke-dashoffset: -8; /* 5 + 3 */
+    stroke-dashoffset: -8;
+    /* 5 + 3 */
   }
 }
 
@@ -361,4 +404,22 @@ circle.selected {
 
 #language-breakdown {
   font-size: 1.2em;
+}
+
+.commit-div {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 1em;
+}
+
+.commit-label {
+  flex: 1;
+}
+
+#commit-time {
+  margin-left: auto;
+}
+
+#commit-progress {
+  width: 700px;
 }
